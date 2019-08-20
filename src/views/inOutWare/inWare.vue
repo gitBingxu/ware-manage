@@ -1,28 +1,34 @@
 <template>
   <div>
-    <h4 class="title">出库申请表</h4>
+    <div class="title">入库申请表</div>
     <br/>
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
       <el-form-item label="设备名称" prop="name">
         <el-input v-model="ruleForm.name"></el-input>
       </el-form-item>
-      <el-form-item label="申领单位" prop="dest">
-        <el-select v-model="ruleForm.dest" placeholder="请选择申领单位">
-          <el-option label="单位1" value="org_one"></el-option>
-          <el-option label="单位2" value="org_two"></el-option>
+      <el-form-item label="设备来源" prop="source">
+        <el-select v-model="ruleForm.source" placeholder="请选择设备来源">
+          <el-option label="购入" value="buy"></el-option>
+          <el-option label="归还" value="give_back"></el-option>
           <el-option label="其他" value="else"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="设备用途" prop="use">
-        <el-select v-model="ruleForm.use" placeholder="请选择设备用途">
-          <el-option label="用途1" value="use_one"></el-option>
-          <el-option label="用途2" value="use_two"></el-option>
+      <el-form-item label="仓库选择" prop="choose">
+        <el-select v-model="ruleForm.choose" placeholder="请选择进入的仓库">
+          <el-option label="仓库1" value="ware_one"></el-option>
+          <el-option label="仓库2" value="ware_two"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="申领日期" required>
+      <el-form-item label="入库时间" required>
         <el-col :span="11">
           <el-form-item prop="date1">
-            <el-date-picker type="date" placeholder="请选择日期" v-model="ruleForm.date1"></el-date-picker>
+            <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1" style="width: 100%;"></el-date-picker>
+          </el-form-item>
+        </el-col>
+        <el-col class="line" :span="2">-</el-col>
+        <el-col :span="11">
+          <el-form-item prop="date2">
+            <el-time-picker placeholder="选择时间" v-model="ruleForm.date2" style="width: 100%;"></el-time-picker>
           </el-form-item>
         </el-col>
       </el-form-item>
@@ -47,9 +53,10 @@ export default {
     return {
       ruleForm: {
         name: '',
-        dest: '',
-        use: '',
+        source: '',
+        choose: '',
         date1: '',
+        date2: '',
         desc: ''
       },
       rules: {
@@ -57,14 +64,17 @@ export default {
           { required: true, message: '请输入设备名称', trigger: 'blur' },
           { min: 1, max: 20, message: '长度在 1 到 20 个字符', trigger: 'blur' }
         ],
-        dest: [
-          { required: true, message: '请选择申领单位', trigger: 'blur' }
+        source: [
+          { required: true, message: '请选择设备来源', trigger: 'blur' }
         ],
-        use: [
-          { required: true, message: '请选择设备用途', trigger: 'blur' }
+        choose: [
+          { required: true, message: '请选择仓库', trigger: 'blur' }
         ],
         date1: [
           { type: 'date', required: true, message: '请选择日期', trigger: 'blur' }
+        ],
+        date2: [
+          { type: 'date', required: true, message: '请选择时间', trigger: 'blur' }
         ]
       }
     }
@@ -75,6 +85,7 @@ export default {
         if (valid) {
           alert('提交成功!')
         } else {
+          console.log('提交失败!请正确填写')
           return false
         }
       })
@@ -87,10 +98,12 @@ export default {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@/assets/style.scss';
+
 .title {
-  padding-left: 30px;
-  color: #606266;
+  @include form-title;
+  margin-left: 20px;
 }
 .line {
   text-align: center;

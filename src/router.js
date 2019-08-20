@@ -16,19 +16,19 @@ export default new Router({
         {
           path: 'inware',
           name: 'InWare',
-          component: () => import(/* webpackChunkName: "InWare" */ './views/inWare/inWare.vue')
+          component: () => import(/* webpackChunkName: "InWare" */ './views/inOutWare/inWare.vue')
         }, {
           path: 'outware',
           name: 'OutWare',
-          component: () => import(/* webpackChunkName: "OutWare" */ './views/outWare/outWare.vue')
+          component: () => import(/* webpackChunkName: "OutWare" */ './views/inOutWare/outWare.vue')
         }, {
           path: 'inquery',
           name: 'InQuery',
-          component: () => import(/* webpackChunkName: "InQuery" */ './views/inQuery/inQuery.vue')
+          component: () => import(/* webpackChunkName: "InQuery" */ './views/query/inQuery.vue')
         }, {
           path: 'outquery',
           name: 'OutQuery',
-          component: () => import(/* webpackChunkName: "OutQuery" */ './views/outQuery/outQuery.vue')
+          component: () => import(/* webpackChunkName: "OutQuery" */ './views/query/outQuery.vue')
         }
       ]
     }

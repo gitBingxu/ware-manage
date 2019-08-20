@@ -59,10 +59,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/style.scss';
+
 .condition {
-  line-height: 45px;
-  padding-left: 5px;
-  background: #e6f4ff;
+  @include form-title;
   }
   .query {
     margin-top: 20px;
