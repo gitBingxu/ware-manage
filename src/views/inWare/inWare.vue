@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="title">入库申请表</h3>
+    <h4 class="title">入库申请表</h4>
     <br/>
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
       <el-form-item label="设备名称" prop="name">
