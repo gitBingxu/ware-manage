@@ -9,21 +9,21 @@
     <el-aside class="aside" width="200px">
       <el-menu :default-openeds="['1','2']">
         <el-submenu index="1">
-          <template slot="title"><i class="el-icon-plus"></i>出入库登记</template>
+          <template slot="title"><i class="el-icon-plus"></i>出入库申请</template>
           <router-link to="./outware">
-            <el-menu-item index="1"><span class="iconfont out-ware">&#xe684;</span>出库登记表</el-menu-item>
+            <el-menu-item index="1"><span class="iconfont out-ware">&#xe684;</span>出库申请表</el-menu-item>
           </router-link>
           <router-link to="./inWare" >
-            <el-menu-item index="2"><span class="iconfont in-ware">&#xe67b;</span>入库登记表</el-menu-item>
+            <el-menu-item index="2"><span class="iconfont in-ware">&#xe67b;</span>入库申请表</el-menu-item>
           </router-link>
         </el-submenu>
         <el-submenu index="2">
           <template slot="title"><i class="el-icon-plus"></i>记录查询</template>
           <router-link to="outquery">
-            <el-menu-item index="3"><span class="iconfont out-ware">&#xe67c;</span>出库查询</el-menu-item>
+            <el-menu-item index="3"><span class="iconfont out-ware">&#xe67c;</span>出库记录查询</el-menu-item>
           </router-link>
           <router-link to="inquery">
-            <el-menu-item index="4"><span class="iconfont in-ware">&#xe683;</span>入库查询</el-menu-item>
+            <el-menu-item index="4"><span class="iconfont in-ware">&#xe683;</span>入库记录查询</el-menu-item>
           </router-link>
         </el-submenu>
         <el-submenu index="3">
