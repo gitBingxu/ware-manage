@@ -1,14 +1,19 @@
 <template>
   <div>
-    in InQuery
+    <query-cons text="入库日期"></query-cons>
+    <record-tab text="入库记录"></record-tab>
   </div>
 </template>
 
 <script>
+import QueryCons from '@/components/queryCondition'
+import RecordTab from '@/components/recordTab'
+
 export default {
   name: 'InQuery',
   components: {
-
+    QueryCons,
+    RecordTab
   },
   data () {
     return {

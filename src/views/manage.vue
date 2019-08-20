@@ -33,7 +33,7 @@
         </el-submenu>
       </el-menu>
     </el-aside>
-    <el-main>
+    <el-main class="main">
       <keep-alive>
         <router-view/>
       </keep-alive>
@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss" scoped>
   .header {
-    background-color:#87CEFA;
+    background-color:#409EFF;
     box-sizing: border-box;
     h1 {
       line-height: 60px;
@@ -72,7 +72,7 @@ export default {
   .aside {
     color: #333;
     background-color: rgb(238, 241, 246);
-    height: 900px;
+    height: calc(100vh - 60px);
     a {
       text-decoration: none;
     }
