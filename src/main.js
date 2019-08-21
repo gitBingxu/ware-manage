@@ -9,6 +9,7 @@ import '@/assets/iconfont.css'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+Vue.prototype.bus = new Vue() // 总线
 
 new Vue({
   router,

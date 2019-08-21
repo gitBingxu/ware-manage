@@ -10,7 +10,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'manage',
       component: Manage,
       children: [
         {
@@ -31,6 +31,19 @@ export default new Router({
           component: () => import(/* webpackChunkName: "OutQuery" */ './views/query/outQuery.vue')
         }
       ]
+    }, {
+      path: '/logorreg',
+      name: 'LogORreg',
+      component: () => import(/* webpackChunkName: "LogORreg" */ './views/logORreg/logORreg.vue'),
+      children: [{
+        path: 'login',
+        name: 'Login',
+        component: () => import(/* webpackChunkName: "Login" */ './views/logORreg/components/login.vue')
+      }, {
+        path: 'reg',
+        name: 'Reg',
+        component: () => import(/* webpackChunkName: "Reg" */ './views/logORreg/components/reg.vue')
+      }]
     }
   ]
 })

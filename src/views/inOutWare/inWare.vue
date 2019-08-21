@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cnt">
     <div class="title">入库申请表</div>
     <br/>
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
