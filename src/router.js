@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Manage from './views/manage.vue'
 
 Vue.use(Router)
 
@@ -11,7 +10,7 @@ export default new Router({
     {
       path: '/',
       name: 'manage',
-      component: Manage,
+      component: () => import(/* webpackChunkName: "Manage" */ './views/manage/manage.vue'),
       children: [{
         path: 'inware',
         name: 'InWare',
