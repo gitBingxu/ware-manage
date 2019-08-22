@@ -1,20 +1,19 @@
 <template>
   <div>
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="姓 名" prop="account">
+      <el-form-item label="姓 名" prop="name">
         <el-input
           type="text"
-          v-model="ruleForm.account"
+          v-model="ruleForm.name"
           class="input"
           placeholder="请输入真实姓名"
           prefix-icon="el-icon-warning-outline">
           </el-input>
       </el-form-item>
-      <el-form-item label="手机号码" prop="passwd">
+      <el-form-item label="手机号码" prop="mobile">
         <el-input
-          type="password"
+          type="text"
           v-model="ruleForm.mobile"
-          autocomplete="off"
           class="input"
           placeholder="请输入手机号码"
           prefix-icon="el-icon-mobile-phone">
@@ -45,18 +44,18 @@
           prefix-icon="el-icon-key">
         </el-input>
       </el-form-item>
-      <el-form-item label="确认密码" prop="passwd">
+      <el-form-item label="确认密码" prop="checkPasswd">
         <el-input
           type="password"
-          v-model="ruleForm.passwd"
+          v-model="ruleForm.check"
           autocomplete="off"
           class="input"
           placeholder="请再次输入密码"
           prefix-icon="el-icon-unlock">
         </el-input>
       </el-form-item>
-      <el-form-item label="管理员" prop="passwd">
-        <el-select v-model="isadmin" placeholder="是否注册为管理员">
+      <el-form-item label="管理员">
+        <el-select v-model="ruleForm.isadmin" placeholder="是否注册为管理员">
           <el-option
             v-for="item in options"
             :key="item.id"
@@ -80,6 +79,14 @@ export default {
 
   },
   data () {
+    var validname = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入姓名'))
+      } else if (value.length < 2 || value.length > 20) {
+        callback(new Error('请输入正确的姓名'))
+      }
+      callback()
+    }
     var validatePass = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('请输入密码'))
@@ -91,21 +98,34 @@ export default {
         callback()
       }
     }
+    var validmobile = (rule, value, callback) => {
+      const Rule = /^(((13[0-9]{1})|(14[57]{1})|(15[012356789]{1})|(17[03678]{1})|(18[0-9]{1})|(19[89]{1})|(16[6]{1}))+\d{8})$/
+      if (!Rule.test(value)) {
+        callback(new Error('请输入正确的手机号'))
+      }
+      callback()
+    }
+    var validcheck = (rule, value, callback) => {
+      if (this.ruleForm.check !== this.ruleForm.passwd) {
+        callback(new Error('两次输入不一致!'))
+      }
+      callback()
+    }
     return {
       ruleForm: {
-        account: '',
-        passwd: ''
+        name: '',
+        mobile: '',
+        passwd: '',
+        check: '',
+        isadmin: ''
       },
       rules: {
-        account: [
-          { requird: true, message: '账户长度必须大于0', trigger: 'blur' }
-        ],
-        passwd: [
-          { validator: validatePass, requird: true, trigger: 'blur' }
-        ]
+        name: [{ validator: validname, trigger: 'blur' }],
+        mobile: [{ validator: validmobile, trigger: 'blur' }],
+        passwd: [{ validator: validatePass, trigger: 'blur' }],
+        checkPasswd: [{ validator: validcheck, trigger: 'blur' }]
       },
       authcode: '',
-      isadmin: '',
       options: [{
         id: 0,
         label: '是',
@@ -122,6 +142,7 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           alert('submit!')
+          this.$router.push('/login')
         } else {
           console.log('error submit!!')
           return false
@@ -130,6 +151,9 @@ export default {
     },
     resetForm (formName) {
       this.$refs[formName].resetFields()
+    },
+    getCode () {
+      // 发送验证码
     }
   }
 }
@@ -139,7 +163,7 @@ export default {
 .demo-ruleForm {
   margin-top: 40px;
   .input {
-    width: 80%;
+    width: 78%;
   }
   .reg-acc, .find-pass {
     display: inline-block;

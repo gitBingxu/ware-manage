@@ -31,7 +31,7 @@ export default {
     top: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    box-shadow: 0px 10px 60px rgba(211, 211, 211, 0.6);
+    box-shadow: 0px 10px 60px rgba(211, 211, 211, 0.8);
   }
 }
 </style>

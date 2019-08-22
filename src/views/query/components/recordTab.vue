@@ -5,17 +5,15 @@
       <el-table-column
       prop="num"
       label="序号"
-      width="80">
+      width="80px">
       </el-table-column>
       <el-table-column
         prop="date"
-        label="日期"
-        width="180">
+        label="日期">
       </el-table-column>
       <el-table-column
-        prop="name"
-        label="姓名"
-        width="180">
+        prop="aplyPerson"
+        label="申请人">
       </el-table-column>
       <el-table-column
         prop="unit"
@@ -24,6 +22,10 @@
       <el-table-column
         prop="ware"
         label="仓库">
+      </el-table-column>
+      <el-table-column
+        prop="handlPerson"
+        label="经办人">
       </el-table-column>
     </el-table>
     <div class="pag-cnt">
@@ -50,16 +52,18 @@ export default {
         num: 0,
         date: '2019-08-09',
         dev: '灭火器',
-        name: '陈俊飞',
+        aplyPerson: '陈俊飞',
         unit: '销售部',
-        ware: '1号仓库'
+        ware: '1号仓库',
+        handlPerson: '许兵'
       }, {
         num: 1,
         date: '2019-08-10',
         dev: '灭火器',
-        name: '杨刚',
+        aplyPerson: '杨刚',
         unit: '总裁办公室',
-        ware: '2号仓库'
+        ware: '2号仓库',
+        handlPerson: '许兵'
       }]
     }
   }

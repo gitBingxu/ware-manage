@@ -1,6 +1,6 @@
 {
-  "name": "ware-manage",
-  "short_name": "ware-manage",
+  "name": "xx公司仓库管理系统",
+  "short_name": "仓库管理系统",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",

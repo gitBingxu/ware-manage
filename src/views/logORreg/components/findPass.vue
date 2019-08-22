@@ -1,23 +1,23 @@
 <template>
   <div>
     <login-head :isreg="true" :cont="string"></login-head>
-    <reg-body></reg-body>
+    <find-body></find-body>
   </div>
 </template>
 
 <script>
-import RegBody from './regBody'
 import LoginHead from './loginHead'
+import FindBody from './findBody'
 
 export default {
-  name: 'Login',
+  name: 'FindPass',
   components: {
-    RegBody,
-    LoginHead
+    LoginHead,
+    FindBody
   },
   data () {
     return {
-      string: 'xx公司仓库管理系统 · 欢迎注册'
+      string: '密码找回 · 请妥善保管密码'
     }
   }
 }

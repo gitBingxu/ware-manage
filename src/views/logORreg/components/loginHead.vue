@@ -5,7 +5,7 @@
       <li @click="handelClick" :class="{ active: isactive}" id="1">用户登录</li>
       <li @click="handelClick" :class="{ active: !isactive}" id="0">管理员登录</li>
     </ul>
-    <div v-else class="reg">xx公司仓库管理系统 · 欢迎注册</div>
+    <div v-else class="reg">{{cont}}</div>
   </div>
 </template>
 
@@ -15,6 +15,10 @@ export default {
   props: {
     isreg: {
       type: Boolean,
+      required: true
+    },
+    cont: {
+      type: String,
       required: true
     }
   },

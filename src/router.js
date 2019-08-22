@@ -17,7 +17,7 @@ export default new Router({
         name: 'InWare',
         component: () => import(/* webpackChunkName: "InWare" */ './views/inOutWare/inWare.vue')
       }, {
-        path: 'outware',
+        path: '',
         name: 'OutWare',
         component: () => import(/* webpackChunkName: "OutWare" */ './views/inOutWare/outWare.vue')
       }, {
@@ -41,6 +41,10 @@ export default new Router({
         path: 'reg',
         name: 'Reg',
         component: () => import(/* webpackChunkName: "Reg" */ './views/logORreg/components/reg.vue')
+      }, {
+        path: 'find',
+        name: 'FindPass',
+        component: () => import(/* webpackChunkName: "FindPass" */ './views/logORreg/components/findPass.vue')
       }]
     }
   ]

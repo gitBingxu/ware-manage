@@ -7,10 +7,10 @@
           v-model="ruleForm.account"
           autocomplete="off"
           class="input"
-          placeholder="请输入账号"
+          placeholder="请输入姓名或手机号"
           prefix-icon="el-icon-user">
           </el-input>
-          <span class="reg-acc"> 注册账号</span>
+          <router-link to="/login/reg"><span class="reg-acc"> 注册账号</span></router-link>
       </el-form-item>
       <el-form-item label="密 码" prop="passwd">
         <el-input
@@ -49,6 +49,12 @@ export default {
         callback()
       }
     }
+    var validaccount = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('账号不能为空!'))
+      }
+      callback()
+    }
     return {
       ruleForm: {
         account: '',
@@ -57,7 +63,7 @@ export default {
       },
       rules: {
         account: [
-          { requird: true, message: '账户长度必须大于0', trigger: 'blur' }
+          { validator: validaccount, requird: true, trigger: 'blur' }
         ],
         passwd: [
           { validator: validatePass, requird: true, trigger: 'blur' }

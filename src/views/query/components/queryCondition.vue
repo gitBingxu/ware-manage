@@ -21,8 +21,14 @@
           <el-option label="手机" value="mobile"></el-option>
         </el-select>
       </el-form-item>
+      <el-form-item label="申请人">
+        <el-select v-model="query.aplperson" placeholder="请选择申请人">
+          <el-option label="史亚军" value="01"></el-option>
+          <el-option label="陈俊飞" value="02"></el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item label="经办人">
-        <el-select v-model="query.person" placeholder="请选择经办人">
+        <el-select v-model="query.handlperson" placeholder="请选择经办人">
           <el-option label="史亚军" value="01"></el-option>
           <el-option label="陈俊飞" value="02"></el-option>
         </el-select>
@@ -50,7 +56,8 @@ export default {
         date1: '',
         date2: '',
         product: '',
-        person: ''
+        aplperson: '',
+        handlperson: ''
       }
     }
   },
