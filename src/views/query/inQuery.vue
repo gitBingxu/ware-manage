@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import QueryCons from '@/components/queryCondition'
-import RecordTab from '@/components/recordTab'
+import QueryCons from './components/queryCondition'
+import RecordTab from './components/recordTab'
 
 export default {
   name: 'InQuery',

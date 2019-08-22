@@ -12,31 +12,29 @@ export default new Router({
       path: '/',
       name: 'manage',
       component: Manage,
-      children: [
-        {
-          path: 'inware',
-          name: 'InWare',
-          component: () => import(/* webpackChunkName: "InWare" */ './views/inOutWare/inWare.vue')
-        }, {
-          path: 'outware',
-          name: 'OutWare',
-          component: () => import(/* webpackChunkName: "OutWare" */ './views/inOutWare/outWare.vue')
-        }, {
-          path: 'inquery',
-          name: 'InQuery',
-          component: () => import(/* webpackChunkName: "InQuery" */ './views/query/inQuery.vue')
-        }, {
-          path: 'outquery',
-          name: 'OutQuery',
-          component: () => import(/* webpackChunkName: "OutQuery" */ './views/query/outQuery.vue')
-        }
-      ]
+      children: [{
+        path: 'inware',
+        name: 'InWare',
+        component: () => import(/* webpackChunkName: "InWare" */ './views/inOutWare/inWare.vue')
+      }, {
+        path: 'outware',
+        name: 'OutWare',
+        component: () => import(/* webpackChunkName: "OutWare" */ './views/inOutWare/outWare.vue')
+      }, {
+        path: 'inquery',
+        name: 'InQuery',
+        component: () => import(/* webpackChunkName: "InQuery" */ './views/query/inQuery.vue')
+      }, {
+        path: 'outquery',
+        name: 'OutQuery',
+        component: () => import(/* webpackChunkName: "OutQuery" */ './views/query/outQuery.vue')
+      }]
     }, {
-      path: '/logorreg',
+      path: '/login',
       name: 'LogORreg',
       component: () => import(/* webpackChunkName: "LogORreg" */ './views/logORreg/logORreg.vue'),
       children: [{
-        path: 'login',
+        path: '',
         name: 'Login',
         component: () => import(/* webpackChunkName: "Login" */ './views/logORreg/components/login.vue')
       }, {
