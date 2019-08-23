@@ -16,7 +16,7 @@ export default new Router({
         name: 'InWare',
         component: () => import(/* webpackChunkName: "InWare" */ './views/inOutWare/inWare.vue')
       }, {
-        path: '',
+        path: '/',
         name: 'OutWare',
         component: () => import(/* webpackChunkName: "OutWare" */ './views/inOutWare/outWare.vue')
       }, {
@@ -27,6 +27,14 @@ export default new Router({
         path: 'outquery',
         name: 'OutQuery',
         component: () => import(/* webpackChunkName: "OutQuery" */ './views/query/outQuery.vue')
+      }, {
+        path: 'mymessage',
+        name: 'MyMessage',
+        component: () => import(/* webpackChunkName: "MyMessage" */ './views/userCenter/myMessage.vue')
+      }, {
+        path: 'myrecord',
+        name: 'MyRecord',
+        component: () => import(/* webpackChunkName: "MyRecord" */ './views/userCenter/myRecord.vue')
       }]
     }, {
       path: '/login',

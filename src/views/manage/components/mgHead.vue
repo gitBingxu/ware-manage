@@ -8,9 +8,9 @@
           <span class="el-dropdown-link" style="color: #fff;">
              史亚军 <i class="el-icon-caret-bottom"></i>
           </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item icon="el-icon-message-solid">我的消息</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-alarm-clock">申请进度</el-dropdown-item>
+          <el-dropdown-menu slot="dropdown" class="menu">
+            <router-link to="/mymessage" :style="text_decoration"><el-dropdown-item icon="el-icon-message-solid">我的消息</el-dropdown-item></router-link>
+            <el-dropdown-item icon="el-icon-alarm-clock">申请记录</el-dropdown-item>
             <el-dropdown-item icon="el-icon-key">修改密码</el-dropdown-item>
             <el-dropdown-item icon="el-icon-switch-button">注销登录</el-dropdown-item>
           </el-dropdown-menu>
@@ -28,19 +28,21 @@ export default {
   },
   data () {
     return {
-
+      text_decoration: { 'text-decoration': 'none' }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/style.scss';
+
 .header {
-  background-color:#409EFF;
+  background-color: $bgcolor;
   box-sizing: border-box;
   height: 80px;
   width: 100vw;
-  color: #fff;
+  color: $fontcolor;
   font-weight: lighter;
   line-height: 80px;
   .cont{

@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div class="title">出库申请表</div>
-    <br/>
+    <form-title :cont="title_cont"></form-title>
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
       <el-form-item label="设备名称" prop="name">
         <el-input v-model="ruleForm.name"></el-input>
@@ -38,13 +37,16 @@
 </template>
 
 <script>
+import FormTitle from '@/components/formTitle'
+
 export default {
   name: 'InWare',
   components: {
-
+    FormTitle
   },
   data () {
     return {
+      title_cont: '出库申请表',
       ruleForm: {
         name: '',
         dest: '',
@@ -89,12 +91,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/style.scss';
-
-.title {
-  @include form-title;
-  margin-left: 20px;
-}
 .line {
   text-align: center;
 }
