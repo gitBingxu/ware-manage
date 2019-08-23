@@ -6,13 +6,13 @@
         <i class="el-icon-user-solid"></i>
         <el-dropdown>
           <span class="el-dropdown-link" style="color: #fff;">
-             史亚军 <i class="el-icon-caret-bottom"></i>
+            &nbsp;{{user}} <i class="el-icon-caret-bottom"></i>
           </span>
           <el-dropdown-menu slot="dropdown" class="menu">
             <router-link to="/mymessage" :style="text_decoration"><el-dropdown-item icon="el-icon-message-solid">我的消息</el-dropdown-item></router-link>
-            <el-dropdown-item icon="el-icon-alarm-clock">申请记录</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-key">修改密码</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-switch-button">注销登录</el-dropdown-item>
+            <router-link to="/myrecord" :style="text_decoration"><el-dropdown-item icon="el-icon-alarm-clock">申请记录</el-dropdown-item></router-link>
+            <router-link to="/login/find" :style="text_decoration"><el-dropdown-item icon="el-icon-key">修改密码</el-dropdown-item></router-link>
+            <router-link to="/" :style="text_decoration"><el-dropdown-item icon="el-icon-switch-button" @click="logOut">注销登录</el-dropdown-item></router-link>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -30,6 +30,19 @@ export default {
     return {
       text_decoration: { 'text-decoration': 'none' }
     }
+  },
+  methods: {
+    logOut () {
+      // 注销登录
+    }
+  },
+  computed: {
+    user () {
+      return sessionStorage.getItem('user')
+    }
+  },
+  beforeCreate () {
+    sessionStorage.setItem('user', '史亚军')
   }
 }
 </script>

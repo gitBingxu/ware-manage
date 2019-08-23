@@ -1,16 +1,19 @@
 <template>
   <div>
     <form-title :cont="title_cont"></form-title>
+    <record-tab :isPersonal="true"></record-tab>
   </div>
 </template>
 
 <script>
 import FormTitle from '@/components/formTitle'
+import RecordTab from '@/views/query/components/recordTab'
 
 export default {
   name: 'MyRecord',
   components: {
-    FormTitle
+    FormTitle,
+    RecordTab
   },
   data () {
     return {

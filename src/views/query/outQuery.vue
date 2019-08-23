@@ -1,7 +1,7 @@
 <template>
   <div>
     <query-cons text="出库日期"></query-cons>
-    <record-tab text="出库记录"></record-tab>
+    <record-tab text="出库记录" :isPersonal="false"></record-tab>
   </div>
 </template>
 

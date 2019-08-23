@@ -17,6 +17,5 @@ export default {
 
 .title {
   @include form-title;
-  margin-left: 20px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="record">{{text}}</div>
+    <div class="record" v-if="!isPersonal">{{text}}</div>
     <el-table :data="record" stripe max-height="1008">
       <el-table-column
       prop="num"
@@ -12,6 +12,7 @@
         label="日期">
       </el-table-column>
       <el-table-column
+        v-if="!isPersonal"
         prop="aplyPerson"
         label="申请人">
       </el-table-column>
@@ -26,6 +27,11 @@
       <el-table-column
         prop="handlPerson"
         label="经办人">
+      </el-table-column>
+      <el-table-column
+        v-if="isPersonal"
+        prop="status"
+        label="状态">
       </el-table-column>
     </el-table>
     <div class="pag-cnt">
@@ -42,7 +48,7 @@
 <script>
 export default {
   name: 'RecordTab',
-  props: ['text'],
+  props: ['text', 'isPersonal'],
   components: {
 
   },
@@ -55,7 +61,8 @@ export default {
         aplyPerson: '陈俊飞',
         unit: '销售部',
         ware: '1号仓库',
-        handlPerson: '许兵'
+        handlPerson: '许兵',
+        status: '审核通过'
       }, {
         num: 1,
         date: '2019-08-10',
@@ -63,7 +70,8 @@ export default {
         aplyPerson: '杨刚',
         unit: '总裁办公室',
         ware: '2号仓库',
-        handlPerson: '许兵'
+        handlPerson: '许兵',
+        status: '未通过'
       }]
     }
   }

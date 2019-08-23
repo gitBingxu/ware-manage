@@ -37,7 +37,7 @@
         <el-button type="primary" @click="queryRecord">查询</el-button>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="reset">重置</el-button>
+        <el-button type="danger" @click="reset">重置</el-button>
       </el-form-item>
     </el-form>
   </div>

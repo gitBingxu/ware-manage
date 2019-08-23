@@ -43,7 +43,7 @@
     </template>
     <el-form-item label-width="100px">
       <el-button type="primary" @click="submitForm('findForm')">提交</el-button>
-      <el-button @click="resetForm('findForm')">重置</el-button>
+      <el-button type="danger" @click="resetForm('findForm')">重置</el-button>
     </el-form-item>
   </el-form>
 </template>
