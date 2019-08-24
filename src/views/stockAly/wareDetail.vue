@@ -1,12 +1,12 @@
 <template>
   <div>
-    StockAly
+
   </div>
 </template>
 
 <script>
 export default {
-  name: 'StockAly',
+  name: 'WareDetail',
   components: {
 
   },

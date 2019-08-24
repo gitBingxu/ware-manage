@@ -3,9 +3,11 @@
 module.exports = {
   // assetsDir: "static",
   devServer: {
-    open: true
-    // host: '0.0.0.0',
-    // port: 8000
+    open: true,
+    host: '127.0.0.1',
+    // port: '8080',
+    https: false,
+    before: app => {}
     // proxy: {
     //   '/api': {
     //     target: 'http://localhost:8000',
