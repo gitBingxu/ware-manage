@@ -34,6 +34,11 @@ export default {
   methods: {
     logOut () {
       // 注销登录
+      let conFirm = confirm('是否注销？')
+      if (conFirm) {
+        sessionStorage.setItem('user', '') // 同理，这里以后会使用cookie，现在先不修改
+        this.$router.push('/login')
+      }
     }
   },
   computed: {

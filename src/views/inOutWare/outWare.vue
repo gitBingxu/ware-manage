@@ -84,7 +84,17 @@ export default {
     resetForm (formName) {
       this.$refs[formName].resetFields()
       this.ruleForm.desc = ''
+    },
+    ifAuth () {
+      const user = sessionStorage.getItem('user') // 这里先这么写，之后是从cookie中取用户名
+      if (!user) {
+        alert('请先登录！')
+        this.$router.push('/login')
+      }
     }
+  },
+  beforeMount () {
+    this.ifAuth()
   }
 }
 
